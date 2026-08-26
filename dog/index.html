@@ -3,14 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dog Nutrition — Adaptive Weight & Feeding for Your Dog</title>
+<title>Dog Nutrition — Adaptive Weight &amp; Feeding for Your Dog</title>
 <link rel="canonical" href="https://junyu17.github.io/dog/">
-<meta http-equiv="refresh" content="0; url=/dog/">
 <meta name="description" content="Dog Nutrition is the adaptive weight and nutrition companion for your dog. It turns real intake and weight trends into a weekly feeding plan that adjusts.">
+<meta name="theme-color" content="#111516">
+<link rel="icon" type="image/png" href="/dog/app-icon.png">
+<link rel="apple-touch-icon" href="/dog/app-icon.png">
 <style>
   :root{
-    --accent:#E97D32; --accent-soft:#FDE6D0; --teal:#1F7C7F; --ink:#2A2520;
-    --muted:#6B6258; --bg:#FCF8F0; --card:#fffdf5; --line:#E6D7BE;
+    --accent:#149FC8; --accent-soft:#DDF7F6; --teal:#248E78; --ink:#20292A;
+    --muted:#5E6B6C; --bg:#F5F9F8; --card:#FFFFFF; --line:#DCE7E4;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -19,10 +21,12 @@
   header{padding:18px 0;border-bottom:1px solid var(--line)}
   header .wrap{display:flex;align-items:center;justify-content:space-between}
   .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:20px}
+  .logo img{width:40px;height:40px;border-radius:11px;box-shadow:0 5px 14px rgba(12,40,43,.18)}
   .logo span{color:var(--accent)}
   nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:15px}
   nav a:hover{color:var(--accent)}
   .hero{padding:70px 0 50px;text-align:center}
+  .hero-icon{display:block;width:150px;height:150px;margin:0 auto 22px;border-radius:32px;box-shadow:0 18px 44px rgba(12,40,43,.22)}
   .hero h1{font-size:42px;line-height:1.15;margin-bottom:16px}
   .hero p.lead{font-size:19px;color:var(--muted);max-width:620px;margin:0 auto 28px}
   .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;
@@ -58,29 +62,30 @@
   h2.section{font-size:28px;text-align:center}
   .sub{text-align:center;color:var(--muted);margin-top:6px}
   .disclaimer{font-size:13px;color:var(--muted);text-align:center;margin-top:30px;padding:0 10px}
-  @media(max-width:600px){.hero h1{font-size:32px}.hero p.lead{font-size:17px}}
+  @media(max-width:700px){header .wrap{align-items:flex-start;gap:14px}nav{text-align:right}nav a{display:inline-block;margin:0 0 6px 14px}.hero h1{font-size:32px}.hero p.lead{font-size:17px}.hero-icon{width:126px;height:126px}}
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <div class="logo">🐾 Dog <span>Nutrition</span></div>
+    <div class="logo"><img src="app-icon.png" alt="Dog Nutrition icon">Dog <span>Nutrition</span></div>
     <nav>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="mailto:billy.yu@me.com">Support</a>
+      <a href="/dog/privacy.html">Privacy</a>
+      <a href="/dog/support.html">Support</a>
     </nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
+    <img class="hero-icon" src="app-icon.png" alt="Dog Nutrition adaptive feeding loop icon">
     <div class="badge">MacroFactor for Dogs</div>
     <h1>The adaptive weight &amp; nutrition companion for your dog</h1>
     <p class="lead">Dog Nutrition turns your dog's real food intake and weight trend into a weekly feeding plan that actually adjusts — not a one-time calculator.</p>
-    <a class="cta" href="#">Download on the App Store</a>
+    <a class="cta" href="https://apps.apple.com/app/id6800743305">Download on the App Store</a>
   </div>
 </section>
 
@@ -93,8 +98,10 @@
       <div class="card"><div class="ico">⚡</div><h3>3-second logging</h3><p>One-tap meal templates, barcode scan, and label OCR keep daily friction minimal so logging actually sticks.</p></div>
       <div class="card"><div class="ico">🎁</div><h3>Treat budget</h3><p>A clear daily treat allowance you can actually follow — instead of just being told to "limit treats."</p></div>
       <div class="card"><div class="ico">🍲</div><h3>Mixed feeding &amp; transition</h3><p>Combine dry, wet, and fresh food by share, and switch foods safely with a 7-day transition plan.</p></div>
-      <div class="card"><div class="ico">👨‍👩‍👧</div><h3>Family feeding sync</h3><p>See who fed what and when, so no one double-feeds the dog. Syncs across your devices with iCloud.</p></div>
-      <div class="card"><div class="ico">🩺</div><h3>Vet-ready reports</h3><p>Generate a printable PDF with weight curve, intake, and adaptive changes for vet visits.</p></div>
+      <div class="card"><div class="ico">🏠</div><h3>Private family sharing</h3><p>Invite family members with different Apple IDs and share only feeding coordination events to reduce double-feeding.</p></div>
+      <div class="card"><div class="ico">🩺</div><h3>Vet-ready reports</h3><p>Generate 30- or 90-day PDF and CSV reports with weight, intake, owner observations, and adaptive changes.</p></div>
+      <div class="card"><div class="ico">📈</div><h3>Monthly progress</h3><p>Review monthly adherence, track weight trends, and record meaningful milestones.</p></div>
+      <div class="card"><div class="ico">📱</div><h3>Widgets &amp; actual intake</h3><p>See remaining calories on Home or Lock Screen and distinguish served food from what was actually eaten.</p></div>
     </div>
   </div>
 </section>
@@ -125,25 +132,25 @@
       </div>
       <div class="plan featured">
         <div class="name">Pro Yearly</div>
-        <div class="price">$59.99</div>
-        <div class="per">~$4.17 / mo · best value</div>
-        <ul><li>Adaptive weekly targets</li><li>Barcode &amp; label OCR</li><li>Food database</li><li>Portion calculator</li><li>Mixed feeding &amp; transition</li><li>Plateau &amp; forecast</li><li>Vet report PDF</li><li>Unlimited templates</li></ul>
+        <div class="price">Local App Store price</div>
+        <div class="per">shown for your region in the app</div>
+        <ul><li>Adaptive weekly targets</li><li>Barcode &amp; label OCR</li><li>Curated starter foods</li><li>Portion calculator</li><li>Mixed feeding &amp; transition</li><li>Plateau &amp; forecast</li><li>Vet report PDF</li><li>Unlimited templates</li></ul>
       </div>
       <div class="plan">
-        <div class="name">Family</div>
-        <div class="price">$89.99</div>
-        <div class="per">per year</div>
-        <ul><li>Everything in Pro</li><li>Up to 4 dogs</li><li>Family sharing</li><li>Per-dog adaptive models</li></ul>
+        <div class="name">Multi-Dog Yearly</div>
+        <div class="price">Local App Store price</div>
+        <div class="per">shown for your region in the app</div>
+        <ul><li>Everything in Pro</li><li>Up to 4 dogs</li><li>Your devices on the same iCloud account</li><li>Per-dog adaptive records</li></ul>
       </div>
     </div>
-    <p class="trial">Pro Monthly also available at $6.99/mo · 7-day free trial on Pro &amp; Family</p>
+    <p class="trial">Pro Monthly is also available. Prices and any eligible introductory offer are supplied by the App Store for your region.</p>
     <p class="disclaimer">Dog Nutrition is a weight &amp; nutrition companion, not a medical device. It does not provide veterinary diagnosis or treatment. Always consult your veterinarian for medical decisions.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>© 2026 Dog Nutrition · Contact: <a href="mailto:billy.yu@me.com">billy.yu@me.com</a> · <a href="privacy.html">Privacy Policy</a></p>
+    <p>© 2026 Dog Nutrition · <a href="/dog/support.html">Support</a> · <a href="/dog/privacy.html">Privacy Policy</a></p>
   </div>
 </footer>
 </body>
