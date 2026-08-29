@@ -3,154 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cat Nutrition — Adaptive Weight &amp; Feeding for Your Cat</title>
-<meta name="description" content="Cat Nutrition is the adaptive weight and nutrition companion for your cat. It turns real intake and weight trends into a weekly feeding plan that adjusts.">
-<meta name="theme-color" content="#111516">
-<link rel="icon" type="image/png" href="app-icon.png">
-<link rel="apple-touch-icon" href="app-icon.png">
+<title>Moved — Dog &amp; Cat Nutrition Coach</title>
+<link rel="canonical" href="https://junyu17.github.io/dog/">
+<meta http-equiv="refresh" content="0; url=/dog/">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="/dog/app-icon.png">
+<link rel="apple-touch-icon" href="/dog/app-icon.png">
 <style>
-  :root{
-    --accent:#B8362D; --accent-soft:#DDF7F6; --teal:#8C5800; --ink:#20292A;
-    --muted:#665E59; --bg:#FBF7F4; --card:#FFFFFF; --line:#EADFD8;
-  }
+  :root{--accent:#149FC8;--ink:#20292A;--muted:#5E6B6C;--bg:#F5F9F8}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);background:var(--bg);line-height:1.6}
-  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
-  header{padding:18px 0;border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;align-items:center;justify-content:space-between}
-  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:20px}
-  .logo img{width:40px;height:40px;border-radius:11px;box-shadow:0 5px 14px rgba(12,40,43,.18)}
-  .logo span{color:var(--accent)}
-  nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:15px}
-  nav a:hover{color:var(--accent)}
-  .hero{padding:70px 0 50px;text-align:center}
-  .hero-icon{display:block;width:150px;height:150px;margin:0 auto 22px;border-radius:32px;box-shadow:0 18px 44px rgba(12,40,43,.22)}
-  .hero h1{font-size:42px;line-height:1.15;margin-bottom:16px}
-  .hero p.lead{font-size:19px;color:var(--muted);max-width:620px;margin:0 auto 28px}
-  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;
-    padding:14px 30px;border-radius:14px;text-decoration:none;font-size:17px}
-  .cta:hover{opacity:.92}
-  .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);
-    padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;margin-bottom:18px}
-  .features{padding:40px 0}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:24px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
-  .card .ico{font-size:28px;margin-bottom:10px}
-  .card h3{font-size:18px;margin-bottom:6px}
-  .card p{color:var(--muted);font-size:15px}
-  .how{padding:40px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .how ol{counter-reset:s;list-style:none;margin-top:24px}
-  .how li{counter-increment:s;padding:14px 0 14px 52px;position:relative;border-bottom:1px solid var(--line)}
-  .how li:last-child{border-bottom:none}
-  .how li:before{content:counter(s);position:absolute;left:0;top:14px;background:var(--accent);color:#fff;
-    width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
-  .pricing{padding:50px 0;text-align:center}
-  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:28px}
-  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;text-align:left}
-  .plan.featured{border-color:var(--accent);border-width:2px}
-  .plan .name{font-weight:700;font-size:18px}
-  .plan .price{font-size:26px;font-weight:800;margin:8px 0;color:var(--accent)}
-  .plan .per{color:var(--muted);font-size:13px}
-  .plan ul{list-style:none;margin-top:12px}
-  .plan li{font-size:14px;color:var(--muted);padding:3px 0}
-  .plan li:before{content:"✓ ";color:var(--teal);font-weight:700}
-  .trial{margin-top:22px;color:var(--muted);font-size:14px}
-  footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-  footer a{color:var(--muted)}
-  h2.section{font-size:28px;text-align:center}
-  .sub{text-align:center;color:var(--muted);margin-top:6px}
-  .disclaimer{font-size:13px;color:var(--muted);text-align:center;margin-top:30px;padding:0 10px}
-  @media(max-width:700px){header .wrap{align-items:flex-start;gap:14px}nav{text-align:right}nav a{display:inline-block;margin:0 0 6px 14px}.hero h1{font-size:32px}.hero p.lead{font-size:17px}.hero-icon{width:126px;height:126px}}
+    color:var(--ink);background:var(--bg);line-height:1.6;min-height:100vh;
+    display:flex;align-items:center;justify-content:center;padding:40px 20px;text-align:center}
+  main{max-width:480px}
+  p{color:var(--muted);font-size:16px}
+  a{color:var(--accent)}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="logo"><img src="app-icon.png" alt="Cat Nutrition icon">Cat <span>Nutrition</span></div>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="support.html">Support</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap">
-    <img class="hero-icon" src="app-icon.png" alt="Cat Nutrition adaptive feeding loop icon">
-    <div class="badge">MacroFactor for Cats</div>
-    <h1>The adaptive weight &amp; nutrition companion for your cat</h1>
-    <p class="lead">Cat Nutrition turns your cat's real food intake and weight trend into a weekly feeding plan that actually adjusts — not a one-time calculator.</p>
-    <a class="cta" href="#">Download on the App Store</a>
-  </div>
-</section>
-
-<section class="features" id="features">
-  <div class="wrap">
-    <h2 class="section">Why Cat Nutrition</h2>
-    <p class="sub">Built for owners who want results, not guesswork.</p>
-    <div class="grid">
-      <div class="card"><div class="ico">📈</div><h3>Adaptive weekly targets</h3><p>The engine reads real intake and weight trend, then nudges the daily target each week — keep, increase, decrease, or recheck.</p></div>
-      <div class="card"><div class="ico">⚡</div><h3>3-second logging</h3><p>One-tap meal templates, barcode scan, and label OCR keep daily friction minimal so logging actually sticks.</p></div>
-      <div class="card"><div class="ico">🎁</div><h3>Treat budget</h3><p>A clear daily treat allowance you can actually follow — instead of just being told to "limit treats."</p></div>
-      <div class="card"><div class="ico">🍲</div><h3>Mixed feeding &amp; transition</h3><p>Combine dry, wet, and fresh food by share, and switch foods safely with a 7-day transition plan.</p></div>
-      <div class="card"><div class="ico">🏠</div><h3>Private family sharing</h3><p>Invite family members with different Apple IDs and share only feeding coordination events to reduce double-feeding.</p></div>
-      <div class="card"><div class="ico">🩺</div><h3>Vet-ready reports</h3><p>Generate 30- or 90-day PDF and CSV reports with weight, intake, owner observations, and adaptive changes.</p></div>
-      <div class="card"><div class="ico">📈</div><h3>Monthly progress</h3><p>Review monthly adherence, track weight trends, and record meaningful milestones.</p></div>
-      <div class="card"><div class="ico">📱</div><h3>Widgets &amp; actual intake</h3><p>See remaining calories on Home or Lock Screen and distinguish served food from what was actually eaten.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="how" id="how">
-  <div class="wrap">
-    <h2 class="section">How it works</h2>
-    <p class="sub">The loop that makes the plan stick.</p>
-    <ol>
-      <li><strong>Initial target.</strong> Enter your cat's weight, body condition score, activity, and goal. Get a starting daily calorie target based on AAHA / WSAVA nutrition guidelines.</li>
-      <li><strong>Daily logging.</strong> Log meals and treats in seconds with templates, barcode, or OCR. The dashboard shows food, treats, and remaining budget.</li>
-      <li><strong>Weekly weigh-in.</strong> Weigh in once a week. The engine analyzes the trend — not a single reading.</li>
-      <li><strong>Adaptive adjustment.</strong> Each week the target is gently tuned: keep what works, trim a plateau, or flag a vet visit if something's off.</li>
-    </ol>
-  </div>
-</section>
-
-<section class="pricing" id="pricing">
-  <div class="wrap">
-    <h2 class="section">Pricing</h2>
-    <p class="sub">Start free. Upgrade when the app starts knowing your cat.</p>
-    <div class="plans">
-      <div class="plan">
-        <div class="name">Free</div>
-        <div class="price">$0</div>
-        <div class="per">forever</div>
-        <ul><li>1 cat profile</li><li>Weight &amp; BCS tracking</li><li>Initial calorie target</li><li>Manual food logging</li><li>2 meal templates</li><li>Daily dashboard</li></ul>
-      </div>
-      <div class="plan featured">
-        <div class="name">Pro Yearly</div>
-        <div class="price">Local App Store price</div>
-        <div class="per">shown for your region in the app</div>
-        <ul><li>Adaptive weekly targets</li><li>Barcode &amp; label OCR</li><li>Curated starter foods</li><li>Portion calculator</li><li>Mixed feeding &amp; transition</li><li>Plateau &amp; forecast</li><li>Vet report PDF</li><li>Unlimited templates</li></ul>
-      </div>
-      <div class="plan">
-        <div class="name">Multi-Cat Yearly</div>
-        <div class="price">Local App Store price</div>
-        <div class="per">shown for your region in the app</div>
-        <ul><li>Everything in Pro</li><li>Up to 4 cats</li><li>Your devices on the same iCloud account</li><li>Per-cat adaptive records</li></ul>
-      </div>
-    </div>
-    <p class="trial">Pro Monthly is also available. Prices and any eligible introductory offer are supplied by the App Store for your region.</p>
-    <p class="disclaimer">Cat Nutrition is a weight &amp; nutrition companion, not a medical device. It does not provide veterinary diagnosis or treatment. Always consult your veterinarian for medical decisions.</p>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p>© 2026 Cat Nutrition · <a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
-  </div>
-</footer>
+<main>
+  <p>The Cat Nutrition app has been merged into <a href="/dog/">Dog &amp; Cat Nutrition Coach</a>, which now covers both dogs and cats. Redirecting you now — if nothing happens, <a href="/dog/">continue to the new page</a>.</p>
+</main>
 </body>
 </html>
