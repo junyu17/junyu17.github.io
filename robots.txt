@@ -1,0 +1,5 @@
+# junyu17.github.io — app marketing sites
+User-agent: *
+Allow: /
+
+Sitemap: https://junyu17.github.io/sitemap.xml
