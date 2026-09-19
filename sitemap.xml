@@ -23,6 +23,16 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://junyu17.github.io/dog/cat-calorie-calculator.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junyu17.github.io/dog/dog-calorie-calculator.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://junyu17.github.io/dog/privacy.html</loc>
     <lastmod>2026-09-05</lastmod>
     <priority>0.4</priority>
@@ -183,5 +193,15 @@
     <loc>https://junyu17.github.io/platepace-site/terms/</loc>
     <lastmod>2026-09-05</lastmod>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://junyu17.github.io/Maren/perimenopause-symptom-checklist.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://junyu17.github.io/relaycare/family-caregiving-checklist.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <priority>0.8</priority>
   </url>
 </urlset>

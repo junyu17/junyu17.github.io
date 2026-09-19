@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dog Calorie Calculator — How Much to Feed My Dog to Lose Weight</title>
+<meta name="description" content="Free dog calorie calculator using AAHA/WSAVA-style RER math, scaled by activity level and neuter status. Get a daily kcal target and grams per day for weight loss or maintenance.">
+<meta name="theme-color" content="#111516">
+<meta name="apple-itunes-app" content="app-id=6800743305">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dog &amp; Cat Nutrition Coach">
+<meta property="og:title" content="Dog Calorie Calculator — How Much to Feed My Dog to Lose Weight">
+<meta property="og:description" content="A free calculator that uses the same activity-scaled RER math as Dog &amp; Cat Nutrition Coach, with a built-in safety floor.">
+<meta property="og:url" content="https://junyu17.github.io/dog/dog-calorie-calculator.html">
+<meta property="og:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dog Calorie Calculator — How Much to Feed My Dog to Lose Weight">
+<meta name="twitter:description" content="Free calculator using activity-scaled RER math with a built-in safety floor for dogs.">
+<meta name="twitter:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<link rel="canonical" href="https://junyu17.github.io/dog/dog-calorie-calculator.html">
+<link rel="icon" type="image/png" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+<style>
+  :root{
+    --accent:#B8362D; --accent-soft:#DDF7F6; --teal:#8C5800; --ink:#20292A;
+    --muted:#665E59; --bg:#FBF7F4; --card:#FFFFFF; --line:#EADFD8; --result:#F3FBFA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{padding:18px 0;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+  .logo img{width:38px;height:38px;border-radius:10px;box-shadow:0 5px 14px rgba(12,40,43,.18)}
+  .logo span{color:var(--accent)}
+  header nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:16px}
+  header nav a:hover{color:var(--accent)}
+  main{padding:36px 0 60px}
+  h1{font-size:30px;line-height:1.2;margin-bottom:10px}
+  p.lead{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0}
+  h2{font-size:20px;margin-bottom:10px;color:var(--accent)}
+  h3{font-size:16px;margin:18px 0 8px}
+  p{color:var(--muted)}
+  a{color:var(--accent)}
+  .field{margin-bottom:16px}
+  .field label,.field .label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:var(--ink)}
+  .field .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row .field{flex:1;min-width:150px}
+  input[type=number], select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    font-size:16px;background:#fff;color:var(--ink);font-family:inherit;
+  }
+  input[type=number]:focus, select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{flex:1;padding:10px 8px;background:#fff;border:none;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit}
+  .seg button.active{background:var(--accent);color:#fff;font-weight:600}
+  .goalseg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .goalseg button{flex:1;min-width:150px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+  .goalseg button.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .calc-btn{width:100%;background:var(--accent);color:#fff;font-weight:700;border:none;border-radius:12px;
+    padding:14px;font-size:16px;cursor:pointer;font-family:inherit;margin-top:6px}
+  .calc-btn:hover{opacity:.92}
+  .result{background:var(--result);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .result .kcal{font-size:40px;font-weight:800;color:var(--accent)}
+  .result .kcal small{font-size:16px;font-weight:600;color:var(--muted)}
+  .result .grams{margin-top:10px;font-size:18px;font-weight:700}
+  .steps{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+  .steps ol{margin-left:20px}
+  .steps li{margin-bottom:8px;font-size:14px;color:var(--ink)}
+  .steps li code{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px;padding:10px 12px;background:#fff;border-radius:10px;border:1px solid var(--line)}
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .why .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .why .item h3{color:var(--accent);margin-top:0}
+  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;
+    padding:14px 28px;border-radius:14px;text-decoration:none;font-size:16px;margin-top:10px}
+  .cta:hover{opacity:.92}
+  .disclaimer{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:26px}
+  .sources{font-size:13px;color:var(--muted);margin-top:10px}
+  .back{margin-top:30px;font-size:14px}
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;margin-top:20px}
+  footer a{color:var(--muted)}
+  @media(max-width:600px){h1{font-size:25px}.result .kcal{font-size:32px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="app-icon.png" alt="Dog and Cat Nutrition Coach icon">Dog &amp; Cat <span>Nutrition Coach</span></a>
+    <nav>
+      <a href="cat-calorie-calculator.html">Cat calculator</a>
+      <a href="index.html">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Dog Calorie Calculator</h1>
+    <p class="lead">How much should you feed your dog to lose weight safely? This calculator uses the same activity-scaled RER math as the Dog &amp; Cat Nutrition Coach app, with a safety floor so the deficit never gets set too aggressively.</p>
+
+    <div class="card">
+      <h2>Enter your dog's numbers</h2>
+
+      <div class="field">
+        <label for="goalRow">Goal</label>
+        <div class="goalseg" id="goalRow">
+          <button type="button" class="goal-btn active" data-goal="lose">Lose weight</button>
+          <button type="button" class="goal-btn" data-goal="maintain">Maintain weight</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="weight">Current weight</label>
+          <input type="number" id="weight" inputmode="decimal" min="0.5" step="0.01" value="6.0">
+          <div class="hint" id="weightError" style="display:none;color:var(--accent);"></div>
+        </div>
+        <div class="field">
+          <span class="label" id="unitLabel">Unit</span>
+          <div class="seg" id="unit" role="group" aria-labelledby="unitLabel">
+            <button type="button" class="unit-btn active" data-unit="kg">kg</button>
+            <button type="button" class="unit-btn" data-unit="lb">lb</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bcs">Body condition score (1–9)</label>
+        <select id="bcs">
+          <option value="1">1 — Severely underweight</option>
+          <option value="2">2 — Underweight</option>
+          <option value="3">3 — Underweight</option>
+          <option value="4">4 — Slightly lean</option>
+          <option value="5" selected>5 — Ideal</option>
+          <option value="6">6 — Slightly overweight</option>
+          <option value="7">7 — Overweight</option>
+          <option value="8">8 — Obese</option>
+          <option value="9">9 — Severely obese</option>
+        </select>
+        <div class="hint">Not sure? A dog at BCS 5 has ribs you can feel without pressing and an obvious waist from above. Ask your vet to score this at a checkup.</div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="activity">Activity level</label>
+          <select id="activity">
+            <option value="low">Mostly resting, little play</option>
+            <option value="moderate" selected>Regular walks / play</option>
+            <option value="high">Free outdoor access / very playful</option>
+            <option value="veryHigh">Constantly active / working dog</option>
+          </select>
+          <div class="hint" id="activityHint">Directly scales a dog's weight-loss target.</div>
+        </div>
+        <div class="field">
+          <label for="neutered">Spayed / neutered?</label>
+          <select id="neutered">
+            <option value="true" selected>Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="foodKcal">Food energy (optional, for grams/day)</label>
+        <input type="number" id="foodKcal" inputmode="decimal" min="0" step="1" placeholder="e.g. 380 kcal per 100 g">
+        <div class="hint">Check the food label for "kcal per 100 g" (or "ME kcal/kg" ÷ 10). Leave blank to see calories only.</div>
+      </div>
+
+      <button class="calc-btn" id="calcBtn" type="button">Calculate daily calories</button>
+
+      <div class="result" id="result">
+        <div class="kcal" id="kcalOut">— <small>kcal / day</small></div>
+        <div class="grams" id="gramsOut"></div>
+        <div class="steps">
+          <h3>How this number was calculated</h3>
+          <ol id="stepsOut"></ol>
+        </div>
+        <div class="note" id="floorNote"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Why dogs need different math from cats</h2>
+      <div class="why">
+        <div class="item">
+          <h3>Dogs are dosed on current weight</h3>
+          <p>A dog's weight-loss target is scaled from its <em>current</em> weight by an activity factor — 0.80× RER for a low-activity dog up to 1.00× RER for a very active one — and increased 5% if the dog is intact. This lets the deficit track how the dog actually lives.</p>
+        </div>
+        <div class="item">
+          <h3>Dogs tolerate a faster deficit</h3>
+          <p>Unlike cats, dogs are not at meaningful risk of hepatic lipidosis from a well-paced calorie deficit, so canine guidance allows activity to push the target lower for an inactive, overweight dog than a flat rate would.</p>
+        </div>
+        <div class="item">
+          <h3>A floor still applies</h3>
+          <p>Even so, the target never drops below 0.60 × RER of current weight — a safety floor so weight loss stays gradual and the dog keeps getting enough energy day to day.</p>
+        </div>
+        <div class="item">
+          <h3>Cats work differently</h3>
+          <p>Cats are dosed on <em>ideal</em> weight at a single fixed rate regardless of activity, because too fast a deficit risks feline hepatic lipidosis. See the <a href="cat-calorie-calculator.html">cat calorie calculator</a>.</p>
+        </div>
+      </div>
+      <p class="sources">Method: Resting Energy Requirement (RER) = 70 × (body weight in kg)<sup>0.75</sup>, following AAHA and WSAVA canine/feline nutritional assessment guidance. Ideal weight is estimated from body condition score (each point above 5 subtracts about 13% for a dog). This is the same calculation used inside the Dog &amp; Cat Nutrition Coach app, where it becomes the starting point for weekly adjustment.</p>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Not veterinary advice.</strong> This calculator gives an educational starting estimate only — it is not a diagnosis or a prescription. Puppies, pregnant or nursing dogs, dogs with diabetes, kidney or heart disease, or any dog already losing weight unintentionally should be assessed by a veterinarian before starting a diet.
+    </div>
+
+    <p class="back"><a href="https://apps.apple.com/app/id6800743305" class="cta" aria-label="Download Dog and Cat Nutrition Coach on the App Store">Get the app to track it weekly →</a></p>
+    <p class="back"><a href="index.html">← Back to Dog &amp; Cat Nutrition Coach</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Dog &amp; Cat Nutrition Coach · <a href="cat-calorie-calculator.html">Cat calculator</a> · <a href="support.html">Support</a> · <a href="privacy.html">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Nutrition engine (mirrors the app's Swift NutritionEngine / SpeciesNutritionProfile for dogs) ----
+  function rer(kg){
+    var k = Math.max(kg, 0.5);
+    return 70 * Math.pow(k, 0.75);
+  }
+  function idealWeightKg(currentKg, bcs){
+    var factorPerPoint = 0.13; // dog: 13% per BCS point above 5
+    var b = Math.max(1, Math.min(9, bcs));
+    var factor = 1 + factorPerPoint * (b - 5);
+    var grams = currentKg * 1000;
+    var idealGrams = Math.round(grams / factor);
+    return idealGrams / 1000;
+  }
+  var DOG_MER = {
+    low:      { true: 1.2, false: 1.4 },
+    moderate: { true: 1.6, false: 1.8 },
+    high:     { true: 1.8, false: 2.0 },
+    veryHigh: { true: 2.0, false: 2.2 }
+  };
+  function dogMerMultiplier(activity, neutered){
+    return DOG_MER[activity][neutered ? "true" : "false"];
+  }
+  var LOSE_BASE = { low: 0.80, moderate: 0.85, high: 0.90, veryHigh: 1.00 };
+
+  function computeDog(currentKg, bcs, activity, neutered, goal){
+    var rerCurrent = rer(currentKg);
+    var idealKg = idealWeightKg(currentKg, bcs);
+    var floor = rerCurrent * 0.60;
+    var target, steps;
+
+    if (goal === "lose") {
+      var base = LOSE_BASE[activity];
+      var loseFactor = neutered ? base : base * 1.05;
+      target = rerCurrent * loseFactor;
+      var safe = Math.max(target, floor);
+      steps = [
+        "RER at current weight: 70 × " + fmt(currentKg,2) + "<sup>0.75</sup> = <code>" + fmt(rerCurrent,0) + " kcal</code>",
+        "Activity base factor for " + activityLabel(activity) + ": <code>×" + fmt(base,2) + "</code>" +
+          (neutered ? "" : ", ×1.05 because intact = <code>×" + fmt(loseFactor,3) + "</code>"),
+        "Weight-loss target: " + fmt(rerCurrent,0) + " × " + fmt(loseFactor,3) + " = <code>" + fmt(target,0) + " kcal</code>",
+        "Safety floor: 0.60 × current RER = 0.60 × " + fmt(rerCurrent,0) + " = <code>" + fmt(floor,0) + " kcal</code>",
+        "Reference — ideal weight from BCS " + bcs + ": <code>" + fmt(idealKg,2) + " kg</code> (not used for a dog's dose, shown for your vet)",
+        "Final target: max(target, floor) = <code>" + Math.round(safe) + " kcal/day</code>"
+      ];
+      return { kcal: Math.round(safe), steps: steps,
+        floorNote: safe === floor && target <= floor ? "The activity-scaled target was below the safety floor, so the floor was used instead." : "" };
+    } else {
+      var mult = dogMerMultiplier(activity, neutered);
+      var mer = rerCurrent * mult;
+      var safe2 = Math.max(mer, floor);
+      steps = [
+        "RER at current weight: 70 × " + fmt(currentKg,2) + "<sup>0.75</sup> = <code>" + fmt(rerCurrent,0) + " kcal</code>",
+        "Maintenance multiplier for " + activityLabel(activity) + ", " + (neutered ? "spayed/neutered" : "intact") + ": <code>×" + fmt(mult,1) + "</code>",
+        "Maintenance energy: " + fmt(rerCurrent,0) + " × " + fmt(mult,1) + " = <code>" + fmt(mer,0) + " kcal</code>",
+        "Safety floor: 0.60 × current RER = <code>" + fmt(floor,0) + " kcal</code>",
+        "Final target: max(maintenance, floor) = <code>" + Math.round(safe2) + " kcal/day</code>"
+      ];
+      return { kcal: Math.round(safe2), steps: steps, floorNote: "" };
+    }
+  }
+
+  function fmt(n, digits){
+    return Number(n).toFixed(digits);
+  }
+  function activityLabel(a){
+    return { low: "low activity", moderate: "moderate activity", high: "high activity", veryHigh: "very high activity" }[a] || a;
+  }
+  var LB_PER_KG = 0.45359237;
+
+  // ---- UI wiring ----
+  var state = { unit: "kg", goal: "lose" };
+
+  function qs(id){ return document.getElementById(id); }
+
+  document.querySelectorAll(".unit-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var newUnit = btn.getAttribute("data-unit");
+      if (newUnit === state.unit) return;
+      var w = parseFloat(qs("weight").value);
+      if (!isNaN(w)) {
+        if (newUnit === "lb") { w = w / LB_PER_KG; }
+        else { w = w * LB_PER_KG; }
+        qs("weight").value = Math.round(w * 100) / 100;
+      }
+      state.unit = newUnit;
+      document.querySelectorAll(".unit-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+    });
+  });
+
+  document.querySelectorAll(".goal-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.goal = btn.getAttribute("data-goal");
+      document.querySelectorAll(".goal-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+      var isLose = state.goal === "lose";
+      qs("activityHint").textContent = isLose
+        ? "Directly scales a dog's weight-loss target."
+        : "Affects the maintenance target directly.";
+    });
+  });
+
+  qs("calcBtn").addEventListener("click", function(){
+    var wRaw = parseFloat(qs("weight").value);
+    if (isNaN(wRaw) || wRaw <= 0) {
+      qs("weightError").textContent = "Enter your dog's weight";
+      qs("weightError").style.display = "block";
+      qs("result").classList.remove("show");
+      qs("weight").focus();
+      return;
+    }
+    qs("weightError").textContent = "";
+    qs("weightError").style.display = "none";
+    var kg = state.unit === "lb" ? wRaw * LB_PER_KG : wRaw;
+    var bcs = parseInt(qs("bcs").value, 10);
+    var activity = qs("activity").value;
+    var neutered = qs("neutered").value === "true";
+
+    var out = computeDog(kg, bcs, activity, neutered, state.goal);
+
+    qs("kcalOut").innerHTML = out.kcal + " <small>kcal / day</small>";
+    qs("stepsOut").innerHTML = out.steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+    qs("floorNote").textContent = out.floorNote || "";
+    qs("floorNote").style.display = out.floorNote ? "block" : "none";
+
+    var foodKcal = parseFloat(qs("foodKcal").value);
+    if (!isNaN(foodKcal) && foodKcal > 0) {
+      var grams = out.kcal / foodKcal * 100;
+      qs("gramsOut").textContent = "≈ " + fmt(grams,0) + " g/day of this food (" + fmt(foodKcal,0) + " kcal/100 g)";
+    } else {
+      qs("gramsOut").textContent = "";
+    }
+
+    qs("result").classList.add("show");
+  });
+
+  // Calculate once on load with the pre-filled example.
+  qs("calcBtn").click();
+})();
+</script>
+</body>
+</html>
