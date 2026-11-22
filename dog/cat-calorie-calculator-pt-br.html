@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de ração para gatos: quanto ele deve comer?</title>
+<meta name="description" content="Calculadora grátis de calorias para gatos com o RER da AAHA/WSAVA: informe peso e ECC e veja as kcal e os gramas por dia para emagrecer ou manter o peso.">
+<meta name="theme-color" content="#111516">
+<meta name="apple-itunes-app" content="app-id=6800743305, affiliate-data=pt=129087449&amp;ct=web_dogcat_pt-br">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dog &amp; Cat Nutrition Coach">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Calculadora de ração para gatos: quanto ele deve comer?">
+<meta property="og:description" content="Uma calculadora grátis com o mesmo RER do peso ideal do Dog &amp; Cat Nutrition Coach, com piso de segurança contra a lipidose hepática felina.">
+<meta property="og:url" content="https://junyu17.github.io/dog/cat-calorie-calculator-pt-br.html">
+<meta property="og:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de ração para gatos: quanto ele deve comer?">
+<meta name="twitter:description" content="Calculadora grátis com RER do peso ideal e piso de segurança para gatos.">
+<meta name="twitter:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<link rel="canonical" href="https://junyu17.github.io/dog/cat-calorie-calculator-pt-br.html">
+<link rel="alternate" hreflang="en" href="https://junyu17.github.io/dog/cat-calorie-calculator.html">
+<link rel="alternate" hreflang="de" href="https://junyu17.github.io/dog/cat-calorie-calculator-de.html">
+<link rel="alternate" hreflang="fr" href="https://junyu17.github.io/dog/cat-calorie-calculator-fr.html">
+<link rel="alternate" hreflang="it" href="https://junyu17.github.io/dog/cat-calorie-calculator-it.html">
+<link rel="alternate" hreflang="es" href="https://junyu17.github.io/dog/cat-calorie-calculator-es.html">
+<link rel="alternate" hreflang="pt-BR" href="https://junyu17.github.io/dog/cat-calorie-calculator-pt-br.html">
+<link rel="alternate" hreflang="ru" href="https://junyu17.github.io/dog/cat-calorie-calculator-ru.html">
+<link rel="alternate" hreflang="tr" href="https://junyu17.github.io/dog/cat-calorie-calculator-tr.html">
+<link rel="alternate" hreflang="x-default" href="https://junyu17.github.io/dog/cat-calorie-calculator.html">
+<link rel="icon" type="image/png" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+<style>
+  :root{
+    --accent:#B8362D; --accent-soft:#DDF7F6; --teal:#8C5800; --ink:#20292A;
+    --muted:#665E59; --bg:#FBF7F4; --card:#FFFFFF; --line:#EADFD8; --result:#F3FBFA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{padding:18px 0;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+  .logo img{width:38px;height:38px;border-radius:10px;box-shadow:0 5px 14px rgba(12,40,43,.18)}
+  .logo span{color:var(--accent)}
+  header nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:16px}
+  header nav a:hover{color:var(--accent)}
+  main{padding:36px 0 60px}
+  h1{font-size:30px;line-height:1.2;margin-bottom:10px}
+  p.lead{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0}
+  h2{font-size:20px;margin-bottom:10px;color:var(--accent)}
+  h3{font-size:16px;margin:18px 0 8px}
+  p{color:var(--muted)}
+  a{color:var(--accent)}
+  .field{margin-bottom:16px}
+  .field label,.field .label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:var(--ink)}
+  .field .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row .field{flex:1;min-width:150px}
+  input[type=number], select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    font-size:16px;background:#fff;color:var(--ink);font-family:inherit;
+  }
+  input[type=number]:focus, select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{flex:1;padding:10px 8px;background:#fff;border:none;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit}
+  .seg button.active{background:var(--accent);color:#fff;font-weight:600}
+  .goalseg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .goalseg button{flex:1;min-width:150px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+  .goalseg button.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .calc-btn{width:100%;background:var(--accent);color:#fff;font-weight:700;border:none;border-radius:12px;
+    padding:14px;font-size:16px;cursor:pointer;font-family:inherit;margin-top:6px}
+  .calc-btn:hover{opacity:.92}
+  .result{background:var(--result);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .result .kcal{font-size:40px;font-weight:800;color:var(--accent)}
+  .result .kcal small{font-size:16px;font-weight:600;color:var(--muted)}
+  .result .grams{margin-top:10px;font-size:18px;font-weight:700}
+  .steps{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+  .steps ol{margin-left:20px}
+  .steps li{margin-bottom:8px;font-size:14px;color:var(--ink)}
+  .steps li code{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px;padding:10px 12px;background:#fff;border-radius:10px;border:1px solid var(--line)}
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .why .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .why .item h3{color:var(--accent);margin-top:0}
+  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;
+    padding:14px 28px;border-radius:14px;text-decoration:none;font-size:16px;margin-top:10px}
+  .cta:hover{opacity:.92}
+  .disclaimer{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:26px}
+  .sources{font-size:13px;color:var(--muted);margin-top:10px}
+  .back{margin-top:30px;font-size:14px}
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;margin-top:20px}
+  footer a{color:var(--muted)}
+  @media(max-width:600px){h1{font-size:25px}.result .kcal{font-size:32px}}
+  /* language switcher */
+  .lang-switch{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+  .lang-switch a{color:var(--muted);text-decoration:none}
+  .lang-switch a:hover{color:var(--accent)}
+  .lang-switch a[aria-current]{font-weight:700;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="app-icon.png" alt="Ícone do app Dog and Cat Nutrition Coach">Dog &amp; Cat <span>Nutrition Coach</span></a>
+    <nav>
+      <a href="dog-calorie-calculator-pt-br.html">Calculadora para cães</a>
+      <a href="index.html">Início</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Idioma"><a href="cat-calorie-calculator.html" hreflang="en" lang="en">English</a><a href="cat-calorie-calculator-de.html" hreflang="de" lang="de">Deutsch</a><a href="cat-calorie-calculator-fr.html" hreflang="fr" lang="fr">Français</a><a href="cat-calorie-calculator-it.html" hreflang="it" lang="it">Italiano</a><a href="cat-calorie-calculator-es.html" hreflang="es" lang="es">Español</a><a href="cat-calorie-calculator-pt-br.html" hreflang="pt-BR" lang="pt-BR" aria-current="page">Português</a><a href="cat-calorie-calculator-ru.html" hreflang="ru" lang="ru">Русский</a><a href="cat-calorie-calculator-tr.html" hreflang="tr" lang="tr">Türkçe</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Calculadora de ração para gatos: quanto meu gato deve comer?</h1>
+    <p class="lead">Quantas calorias o seu gato deve comer para emagrecer com segurança? Esta calculadora usa a mesma conta do peso ideal do app Dog & Cat Nutrition Coach, incluindo o piso de segurança que protege contra a lipidose hepática felina (fígado gorduroso) durante a dieta.</p>
+
+    <div class="card">
+      <h2>Informe os dados do seu gato</h2>
+
+      <div class="field">
+        <label for="goalRow">Objetivo</label>
+        <div class="goalseg" id="goalRow">
+          <button type="button" class="goal-btn active" data-goal="lose">Emagrecer</button>
+          <button type="button" class="goal-btn" data-goal="maintain">Manter o peso</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="weight">Peso atual</label>
+          <input type="number" id="weight" inputmode="decimal" min="0.5" step="0.01" value="6.0">
+          <div class="hint" id="weightError" style="display:none;color:var(--accent);"></div>
+        </div>
+        <div class="field">
+          <span class="label" id="unitLabel">Unidade</span>
+          <div class="seg" id="unit" role="group" aria-labelledby="unitLabel">
+            <button type="button" class="unit-btn active" data-unit="kg">kg</button>
+            <button type="button" class="unit-btn" data-unit="lb">lb</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bcs">Escore de condição corporal, ECC (1–9)</label>
+        <select id="bcs">
+          <option value="1">1 — Extremamente magro</option>
+          <option value="2">2 — Abaixo do peso</option>
+          <option value="3">3 — Abaixo do peso</option>
+          <option value="4">4 — Um pouco magro</option>
+          <option value="5" selected>5 — Ideal</option>
+          <option value="6">6 — Levemente acima do peso</option>
+          <option value="7">7 — Acima do peso</option>
+          <option value="8">8 — Obeso</option>
+          <option value="9">9 — Extremamente obeso</option>
+        </select>
+        <div class="hint">Não tem certeza? Em um gato com ECC 5, dá para sentir as costelas com leve pressão e ver a cintura quando olhamos de cima. Peça ao veterinário para avaliar em uma consulta.</div>
+      </div>
+
+      <div class="row" id="activityRow">
+        <div class="field">
+          <label for="activity">Nível de atividade</label>
+          <select id="activity">
+            <option value="low">Dentro de casa, pouco ativo</option>
+            <option value="moderate" selected>Dentro de casa, normal</option>
+            <option value="high">Casa + rua</option>
+            <option value="veryHigh">Muito ativo</option>
+          </select>
+          <div class="hint" id="activityHint">Usado só na manutenção: a dose de emagrecimento de um gato não muda com o nível de atividade.</div>
+        </div>
+        <div class="field">
+          <label for="neutered">Castrado(a)?</label>
+          <select id="neutered">
+            <option value="true" selected>Sim</option>
+            <option value="false">Não</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="foodKcal">Energia da ração (opcional, para gramas por dia)</label>
+        <input type="number" id="foodKcal" inputmode="decimal" min="0" step="1" placeholder="ex.: 350 kcal por 100 g">
+        <div class="hint">Procure «kcal por 100 g» no rótulo (ou «EM kcal/kg» ÷ 10). Deixe em branco para ver só as calorias.</div>
+      </div>
+
+      <button class="calc-btn" id="calcBtn" type="button">Calcular calorias diárias</button>
+
+      <div class="result" id="result">
+        <div class="kcal" id="kcalOut">— <small>kcal / dia</small></div>
+        <div class="grams" id="gramsOut"></div>
+        <div class="steps">
+          <h3>Como esse número foi calculado</h3>
+          <ol id="stepsOut"></ol>
+        </div>
+        <div class="note" id="floorNote"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Por que gatos precisam de uma conta diferente da dos cães</h2>
+      <div class="why">
+        <div class="item">
+          <h3>O risco de fígado gorduroso é real e rápido</h3>
+          <p>Se a ingestão de calorias de um gato cai demais e rápido demais, o corpo mobiliza gordura mais depressa do que o fígado consegue processar, o que desencadeia a lipidose hepática, uma condição que ameaça a vida e pode surgir em poucos dias. Isso é específico dos gatos; cães não correm risco significativo com uma dieta no mesmo ritmo.</p>
+        </div>
+        <div class="item">
+          <h3>Gatos são dosados pelo peso ideal, com taxa fixa</h3>
+          <p>Por causa desse risco, as metas de emagrecimento de gatos, no estilo das diretrizes AAHA/WSAVA, são definidas como uma taxa fixa sobre o peso <em>ideal</em> do gato, sem subir nem descer conforme a atividade ou a castração como acontece com o cão, e nunca ficam abaixo de um piso rígido.</p>
+        </div>
+        <div class="item">
+          <h3>Cães variam conforme a atividade</h3>
+          <p>A meta de emagrecimento de um cão é calculada a partir do peso <em>atual</em> e ajustada pela atividade e pela castração, porque cães toleram um déficit mais rápido e agressivo do que gatos. Veja a <a href="dog-calorie-calculator-pt-br.html">calculadora de calorias para cães</a>.</p>
+        </div>
+        <div class="item">
+          <h3>As pesagens devem guiar as mudanças, não o palpite</h3>
+          <p>Esta página dá um ponto de partida. O Dog & Cat Nutrition Coach ajusta a meta diária real do seu gato semana a semana a partir da ingestão registrada e da tendência real das pesagens, em vez de deixá-la fixa na estimativa do primeiro dia.</p>
+        </div>
+      </div>
+      <p class="sources">Método: necessidade de energia em repouso (RER) = 70 × (peso corporal em kg)<sup>0,75</sup>, seguindo as diretrizes da AAHA e da WSAVA para avaliação nutricional de gatos e cães. O peso ideal é estimado a partir do escore de condição corporal (cada ponto acima de 5 subtrai cerca de 10% em um gato). É o mesmo cálculo usado dentro do app Dog & Cat Nutrition Coach.</p>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Não é orientação veterinária.</strong> Esta calculadora dá apenas uma estimativa educativa: não é diagnóstico nem prescrição. Filhotes, gatas gestantes ou lactantes, gatos com diabetes, doença renal ou hipertireoidismo e qualquer gato que já esteja perdendo peso sem querer devem ser avaliados por um veterinário antes de iniciar uma dieta. Nunca restrinja a comida de um gato sem um plano para monitorar a ingestão, porque gatos que ficam sem comer por apenas alguns dias correm risco de lipidose hepática.
+    </div>
+
+    <p class="back"><a href="how-much-to-feed-dog-cat-pt-br.html">Quer ver a conta feita à mão? Quanto dar de comida a cães e gatos, passo a passo →</a></p>
+    <p class="back"><a href="https://apps.apple.com/app/apple-store/id6800743305?pt=129087449&amp;ct=web_dog_catcalc_pt-br&amp;mt=8" class="cta" aria-label="Baixar o Dog and Cat Nutrition Coach na App Store">Baixe o app para acompanhar toda semana →</a></p>
+    <p class="back"><a href="index.html">← Voltar para o Dog & Cat Nutrition Coach</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Dog &amp; Cat Nutrition Coach &middot; <a href="dog-calorie-calculator-pt-br.html">Calculadora para cães</a> &middot; <a href="support.html">Suporte</a> &middot; <a href="privacy.html">Política de privacidade</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var T = {
+  "dec": ",",
+  "kcalDay": "kcal / dia",
+  "grams": "≈ {0} g/dia desta ração ({1} kcal/100 g)",
+  "hintMaint": "Afeta diretamente a meta de manutenção.",
+  "hintLose": "Usado só na manutenção: a dose de emagrecimento de um gato não muda com o nível de atividade.",
+  "weightErr": "Informe o peso do seu gato",
+  "s1": "RER no peso atual: 70 × {0}<sup>0,75</sup> = <code>{1} kcal</code>",
+  "s6": "Meta final: máx(meta, piso) = <code>{0} kcal/dia</code>",
+  "m2": "Multiplicador de manutenção para {0}, {1}: <code>×{2}</code>",
+  "m3": "Energia de manutenção: {0} × {1} = <code>{2} kcal</code>",
+  "m5": "Meta final: máx(manutenção, piso) = <code>{0} kcal/dia</code>",
+  "neutYes": "castrado(a)",
+  "neutNo": "não castrado(a)",
+  "s2": "Peso ideal a partir do ECC {0}: {1} kg ÷ (1 + 0,10 × ({0} − 5)) = <code>{2} kg</code>",
+  "s3": "RER no peso ideal: 70 × {0}<sup>0,75</sup> = <code>{1} kcal</code>",
+  "s4": "Meta de emagrecimento: 0,80 × RER ideal = 0,80 × {0} = <code>{1} kcal</code>",
+  "s5": "Piso de segurança: 0,80 × RER ideal = <code>{0} kcal</code> — em gatos, a meta e o piso são a mesma taxa fixa, então nunca é cortada além disso",
+  "floorNote": "Este já é o piso de segurança felino: o app não define uma meta menor, por mais devagar que o peso desça.",
+  "m4": "Peso ideal a partir do ECC {0}: <code>{1} kg</code>, piso de segurança 0,80 × RER ideal = <code>{2} kcal</code>",
+  "act": {
+    "low": "Dentro de casa, pouco ativo",
+    "moderate": "Dentro de casa, normal",
+    "high": "Casa + rua",
+    "veryHigh": "Muito ativo"
+  }
+};
+  function f(tpl){ var a = arguments; return tpl.replace(/\{(\d)\}/g, function(m, i){ return a[+i + 1]; }); }
+
+  // ---- Nutrition engine (mirrors the app's Swift NutritionEngine / SpeciesNutritionProfile for cats) ----
+  function rer(kg){
+    var k = Math.max(kg, 0.5);
+    return 70 * Math.pow(k, 0.75);
+  }
+  function idealWeightKg(currentKg, bcs){
+    var factorPerPoint = 0.10; // cat: 10% per BCS point above 5
+    var b = Math.max(1, Math.min(9, bcs));
+    var factor = 1 + factorPerPoint * (b - 5);
+    var grams = currentKg * 1000;
+    var idealGrams = Math.round(grams / factor);
+    return idealGrams / 1000;
+  }
+  var CAT_MER = {
+    low:      { true: 1.0, false: 1.2 },
+    moderate: { true: 1.2, false: 1.4 },
+    high:     { true: 1.4, false: 1.6 },
+    veryHigh: { true: 1.6, false: 1.8 }
+  };
+  function catMerMultiplier(activity, neutered){
+    return CAT_MER[activity][neutered ? "true" : "false"];
+  }
+
+  function computeCat(currentKg, bcs, activity, neutered, goal){
+    var rerCurrent = rer(currentKg);
+    var idealKg = idealWeightKg(currentKg, bcs);
+    var idealRer = rer(idealKg);
+    var floor = idealRer * 0.80; // hepatic lipidosis safety floor, always on ideal weight
+    var target, steps;
+
+    if (goal === "lose") {
+      target = idealRer * 0.80; // fixed rate, not activity/neuter scaled
+      var safe = Math.max(target, floor);
+      steps = [
+        f(T.s1, fmt(currentKg,2), fmt(rerCurrent,0)),
+        f(T.s2, bcs, fmt(currentKg,2), fmt(idealKg,2)),
+        f(T.s3, fmt(idealKg,2), fmt(idealRer,0)),
+        f(T.s4, fmt(idealRer,0), fmt(target,0)),
+        f(T.s5, fmt(floor,0)),
+        f(T.s6, Math.round(safe))
+      ];
+      return { kcal: Math.round(safe), steps: steps, floorBound: safe === floor && target <= floor,
+        floorNote: T.floorNote };
+    } else {
+      var mult = catMerMultiplier(activity, neutered);
+      var mer = rerCurrent * mult;
+      var safe2 = Math.max(mer, floor);
+      steps = [
+        f(T.s1, fmt(currentKg,2), fmt(rerCurrent,0)),
+        f(T.m2, activityLabel(activity), (neutered ? T.neutYes : T.neutNo), fmt(mult,1)),
+        f(T.m3, fmt(rerCurrent,0), fmt(mult,1), fmt(mer,0)),
+        f(T.m4, bcs, fmt(idealKg,2), fmt(floor,0)),
+        f(T.m5, Math.round(safe2))
+      ];
+      return { kcal: Math.round(safe2), steps: steps, floorBound: safe2 === floor && mer <= floor,
+        floorNote: "" };
+    }
+  }
+
+  function fmt(n, digits){
+    return Number(n).toFixed(digits).replace(".", T.dec);
+  }
+  function activityLabel(a){
+    return T.act[a] || a;
+  }
+  var LB_PER_KG = 0.45359237;
+
+  // ---- UI wiring ----
+  var state = { unit: "kg", goal: "lose" };
+
+  function qs(id){ return document.getElementById(id); }
+
+  document.querySelectorAll(".unit-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var newUnit = btn.getAttribute("data-unit");
+      if (newUnit === state.unit) return;
+      var w = parseFloat(qs("weight").value);
+      if (!isNaN(w)) {
+        if (newUnit === "lb") { w = w / LB_PER_KG; }
+        else { w = w * LB_PER_KG; }
+        qs("weight").value = Math.round(w * 100) / 100;
+      }
+      state.unit = newUnit;
+      document.querySelectorAll(".unit-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+    });
+  });
+
+  document.querySelectorAll(".goal-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.goal = btn.getAttribute("data-goal");
+      document.querySelectorAll(".goal-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+      var isLose = state.goal === "lose";
+      qs("activityHint").textContent = isLose
+        ? T.hintLose
+        : T.hintMaint;
+    });
+  });
+
+  qs("calcBtn").addEventListener("click", function(){
+    var wRaw = parseFloat(qs("weight").value);
+    if (isNaN(wRaw) || wRaw <= 0) {
+      qs("weightError").textContent = T.weightErr;
+      qs("weightError").style.display = "block";
+      qs("result").classList.remove("show");
+      qs("weight").focus();
+      return;
+    }
+    qs("weightError").textContent = "";
+    qs("weightError").style.display = "none";
+    var kg = state.unit === "lb" ? wRaw * LB_PER_KG : wRaw;
+    var bcs = parseInt(qs("bcs").value, 10);
+    var activity = qs("activity").value;
+    var neutered = qs("neutered").value === "true";
+
+    var out = computeCat(kg, bcs, activity, neutered, state.goal);
+
+    qs("kcalOut").innerHTML = out.kcal + " <small>" + T.kcalDay + "</small>";
+    qs("stepsOut").innerHTML = out.steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+    qs("floorNote").textContent = out.floorNote || "";
+    qs("floorNote").style.display = out.floorNote ? "block" : "none";
+
+    var foodKcal = parseFloat(qs("foodKcal").value);
+    if (!isNaN(foodKcal) && foodKcal > 0) {
+      var grams = out.kcal / foodKcal * 100;
+      qs("gramsOut").textContent = f(T.grams, fmt(grams,0), fmt(foodKcal,0));
+    } else {
+      qs("gramsOut").textContent = "";
+    }
+
+    qs("result").classList.add("show");
+  });
+
+  // Calculate once on load with the pre-filled example.
+  qs("calcBtn").click();
+})();
+</script>
+</body>
+</html>

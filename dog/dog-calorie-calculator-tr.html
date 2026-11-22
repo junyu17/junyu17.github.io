@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Köpek maması hesaplama: Köpeğime ne kadar mama vermeliyim?</title>
+<meta name="description" content="AAHA/WSAVA tarzı RER ile ücretsiz köpek kalori hesaplayıcı; aktivite ve kısırlaştırmaya göre ayarlanır. Kilo verme veya koruma için günlük kcal ve gram hedefi.">
+<meta name="theme-color" content="#111516">
+<meta name="apple-itunes-app" content="app-id=6800743305, affiliate-data=pt=129087449&amp;ct=web_dogcat_tr">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dog &amp; Cat Nutrition Coach">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="Köpek maması hesaplama: Köpeğime ne kadar mama vermeliyim?">
+<meta property="og:description" content="Dog &amp; Cat Nutrition Coach ile aynı aktiviteye göre ayarlanan RER hesabını ve yerleşik güvenlik alt sınırını kullanan ücretsiz hesaplayıcı.">
+<meta property="og:url" content="https://junyu17.github.io/dog/dog-calorie-calculator-tr.html">
+<meta property="og:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Köpek maması hesaplama: Köpeğime ne kadar mama vermeliyim?">
+<meta name="twitter:description" content="Köpekler için aktiviteye göre ayarlanan RER hesabı ve yerleşik güvenlik alt sınırı olan ücretsiz hesaplayıcı.">
+<meta name="twitter:image" content="https://junyu17.github.io/dog/og-card.jpg">
+<link rel="canonical" href="https://junyu17.github.io/dog/dog-calorie-calculator-tr.html">
+<link rel="alternate" hreflang="en" href="https://junyu17.github.io/dog/dog-calorie-calculator.html">
+<link rel="alternate" hreflang="de" href="https://junyu17.github.io/dog/dog-calorie-calculator-de.html">
+<link rel="alternate" hreflang="fr" href="https://junyu17.github.io/dog/dog-calorie-calculator-fr.html">
+<link rel="alternate" hreflang="it" href="https://junyu17.github.io/dog/dog-calorie-calculator-it.html">
+<link rel="alternate" hreflang="es" href="https://junyu17.github.io/dog/dog-calorie-calculator-es.html">
+<link rel="alternate" hreflang="pt-BR" href="https://junyu17.github.io/dog/dog-calorie-calculator-pt-br.html">
+<link rel="alternate" hreflang="ru" href="https://junyu17.github.io/dog/dog-calorie-calculator-ru.html">
+<link rel="alternate" hreflang="tr" href="https://junyu17.github.io/dog/dog-calorie-calculator-tr.html">
+<link rel="alternate" hreflang="x-default" href="https://junyu17.github.io/dog/dog-calorie-calculator.html">
+<link rel="icon" type="image/png" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+<style>
+  :root{
+    --accent:#B8362D; --accent-soft:#DDF7F6; --teal:#8C5800; --ink:#20292A;
+    --muted:#665E59; --bg:#FBF7F4; --card:#FFFFFF; --line:#EADFD8; --result:#F3FBFA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+  header{padding:18px 0;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px;text-decoration:none;color:var(--ink)}
+  .logo img{width:38px;height:38px;border-radius:10px;box-shadow:0 5px 14px rgba(12,40,43,.18)}
+  .logo span{color:var(--accent)}
+  header nav a{color:var(--muted);text-decoration:none;font-size:15px;margin-left:16px}
+  header nav a:hover{color:var(--accent)}
+  main{padding:36px 0 60px}
+  h1{font-size:30px;line-height:1.2;margin-bottom:10px}
+  p.lead{color:var(--muted);font-size:17px;max-width:640px;margin-bottom:26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin:18px 0}
+  h2{font-size:20px;margin-bottom:10px;color:var(--accent)}
+  h3{font-size:16px;margin:18px 0 8px}
+  p{color:var(--muted)}
+  a{color:var(--accent)}
+  .field{margin-bottom:16px}
+  .field label,.field .label{display:block;font-weight:600;font-size:14px;margin-bottom:6px;color:var(--ink)}
+  .field .hint{font-size:12px;color:var(--muted);margin-top:4px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row .field{flex:1;min-width:150px}
+  input[type=number], select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    font-size:16px;background:#fff;color:var(--ink);font-family:inherit;
+  }
+  input[type=number]:focus, select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{flex:1;padding:10px 8px;background:#fff;border:none;font-size:14px;color:var(--muted);cursor:pointer;font-family:inherit}
+  .seg button.active{background:var(--accent);color:#fff;font-weight:600}
+  .goalseg{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .goalseg button{flex:1;min-width:150px;padding:12px;border:1px solid var(--line);border-radius:10px;background:#fff;
+    font-family:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+  .goalseg button.active{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+  .calc-btn{width:100%;background:var(--accent);color:#fff;font-weight:700;border:none;border-radius:12px;
+    padding:14px;font-size:16px;cursor:pointer;font-family:inherit;margin-top:6px}
+  .calc-btn:hover{opacity:.92}
+  .result{background:var(--result);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:18px;display:none}
+  .result.show{display:block}
+  .result .kcal{font-size:40px;font-weight:800;color:var(--accent)}
+  .result .kcal small{font-size:16px;font-weight:600;color:var(--muted)}
+  .result .grams{margin-top:10px;font-size:18px;font-weight:700}
+  .steps{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+  .steps ol{margin-left:20px}
+  .steps li{margin-bottom:8px;font-size:14px;color:var(--ink)}
+  .steps li code{background:#fff;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .note{font-size:13px;color:var(--muted);margin-top:12px;padding:10px 12px;background:#fff;border-radius:10px;border:1px solid var(--line)}
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
+  .why .item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .why .item h3{color:var(--accent);margin-top:0}
+  .cta{display:inline-block;background:var(--accent);color:#fff;font-weight:600;
+    padding:14px 28px;border-radius:14px;text-decoration:none;font-size:16px;margin-top:10px}
+  .cta:hover{opacity:.92}
+  .disclaimer{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:26px}
+  .sources{font-size:13px;color:var(--muted);margin-top:10px}
+  .back{margin-top:30px;font-size:14px}
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px;margin-top:20px}
+  footer a{color:var(--muted)}
+  @media(max-width:600px){h1{font-size:25px}.result .kcal{font-size:32px}}
+  /* language switcher */
+  .lang-switch{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}
+  .lang-switch a{color:var(--muted);text-decoration:none}
+  .lang-switch a:hover{color:var(--accent)}
+  .lang-switch a[aria-current]{font-weight:700;color:var(--ink)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="app-icon.png" alt="Dog and Cat Nutrition Coach uygulama simgesi">Dog &amp; Cat <span>Nutrition Coach</span></a>
+    <nav>
+      <a href="cat-calorie-calculator-tr.html">Kedi hesaplayıcı</a>
+      <a href="index.html">Ana sayfa</a>
+    </nav>
+    <nav class="lang-switch" aria-label="Dil"><a href="dog-calorie-calculator.html" hreflang="en" lang="en">English</a><a href="dog-calorie-calculator-de.html" hreflang="de" lang="de">Deutsch</a><a href="dog-calorie-calculator-fr.html" hreflang="fr" lang="fr">Français</a><a href="dog-calorie-calculator-it.html" hreflang="it" lang="it">Italiano</a><a href="dog-calorie-calculator-es.html" hreflang="es" lang="es">Español</a><a href="dog-calorie-calculator-pt-br.html" hreflang="pt-BR" lang="pt-BR">Português</a><a href="dog-calorie-calculator-ru.html" hreflang="ru" lang="ru">Русский</a><a href="dog-calorie-calculator-tr.html" hreflang="tr" lang="tr" aria-current="page">Türkçe</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Köpek maması hesaplama: Köpeğime ne kadar mama vermeliyim?</h1>
+    <p class="lead">Köpeğiniz güvenle kilo verebilsin diye ona ne kadar mama vermelisiniz? Bu hesaplayıcı, Dog & Cat Nutrition Coach uygulamasındaki aktiviteye göre ayarlanan RER hesabının aynısını kullanır; kalori açığının hiçbir zaman fazla agresif belirlenmemesi için bir güvenlik alt sınırı da vardır.</p>
+
+    <div class="card">
+      <h2>Köpeğinizin değerlerini girin</h2>
+
+      <div class="field">
+        <label for="goalRow">Hedef</label>
+        <div class="goalseg" id="goalRow">
+          <button type="button" class="goal-btn active" data-goal="lose">Kilo verme</button>
+          <button type="button" class="goal-btn" data-goal="maintain">Kiloyu koruma</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="weight">Şu anki kilo</label>
+          <input type="number" id="weight" inputmode="decimal" min="0.5" step="0.01" value="6.0">
+          <div class="hint" id="weightError" style="display:none;color:var(--accent);"></div>
+        </div>
+        <div class="field">
+          <span class="label" id="unitLabel">Birim</span>
+          <div class="seg" id="unit" role="group" aria-labelledby="unitLabel">
+            <button type="button" class="unit-btn active" data-unit="kg">kg</button>
+            <button type="button" class="unit-btn" data-unit="lb">lb</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="bcs">Vücut kondisyon skoru, BCS (1–9)</label>
+        <select id="bcs">
+          <option value="1">1 — Aşırı zayıf</option>
+          <option value="2">2 — Zayıf</option>
+          <option value="3">3 — Zayıf</option>
+          <option value="4">4 — Hafif zayıf</option>
+          <option value="5" selected>5 — İdeal</option>
+          <option value="6">6 — Hafif kilolu</option>
+          <option value="7">7 — Kilolu</option>
+          <option value="8">8 — Obez</option>
+          <option value="9">9 — Aşırı obez</option>
+        </select>
+        <div class="hint">Emin değil misiniz? BCS 5 olan bir köpekte kaburgalar bastırmadan hissedilir ve yukarıdan bakınca bel çizgisi belirgindir. Bir kontrolde veterinerinizden puanlamasını isteyin.</div>
+      </div>
+
+      <div class="row" id="activityRow">
+        <div class="field">
+          <label for="activity">Aktivite düzeyi</label>
+          <select id="activity">
+            <option value="low">Çoğunlukla dinleniyor, az oyun</option>
+            <option value="moderate" selected>Düzenli yürüyüş / oyun</option>
+            <option value="high">Serbest dış mekân erişimi / çok oyuncu</option>
+            <option value="veryHigh">Sürekli aktif / çalışan köpek</option>
+          </select>
+          <div class="hint" id="activityHint">Köpeğin kilo verme hedefini doğrudan ölçeklendirir.</div>
+        </div>
+        <div class="field">
+          <label for="neutered">Kısırlaştırılmış mı?</label>
+          <select id="neutered">
+            <option value="true" selected>Evet</option>
+            <option value="false">Hayır</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="foodKcal">Mamanın enerji değeri (isteğe bağlı, günlük gram için)</label>
+        <input type="number" id="foodKcal" inputmode="decimal" min="0" step="1" placeholder="ör. 100 g başına 380 kcal">
+        <div class="hint">Etikette «100 g başına kcal» değerini arayın (ya da «ME kcal/kg» ÷ 10). Yalnızca kaloriyi görmek için boş bırakın.</div>
+      </div>
+
+      <button class="calc-btn" id="calcBtn" type="button">Günlük kaloriyi hesapla</button>
+
+      <div class="result" id="result">
+        <div class="kcal" id="kcalOut">— <small>kcal / gün</small></div>
+        <div class="grams" id="gramsOut"></div>
+        <div class="steps">
+          <h3>Bu değer nasıl hesaplandı</h3>
+          <ol id="stepsOut"></ol>
+        </div>
+        <div class="note" id="floorNote"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Köpekler için hesap neden kedilerden farklı</h2>
+      <div class="why">
+        <div class="item">
+          <h3>Köpekler şu anki kiloya göre dozlanır</h3>
+          <p>Köpeğin kilo verme hedefi, <em>şu anki</em> kilosundan bir aktivite katsayısıyla ölçeklenir; az aktif bir köpek için 0,80 × RER'den çok aktif bir köpek için 1,00 × RER'e kadar değişir ve köpek kısırlaştırılmamışsa %5 artırılır. Böylece açık, köpeğin gerçekte nasıl yaşadığını izler.</p>
+        </div>
+        <div class="item">
+          <h3>Köpekler daha hızlı bir açığı tolere eder</h3>
+          <p>Kedilerden farklı olarak köpekler, iyi ayarlanmış bir kalori açığından dolayı hepatik lipidoz açısından anlamlı bir risk altında değildir; bu yüzden köpek kılavuzları, hareketsiz ve kilolu bir köpeğin hedefinin aktiviteyle sabit bir oranın verebileceğinden daha aşağı çekilmesine izin verir.</p>
+        </div>
+        <div class="item">
+          <h3>Yine de bir alt sınır geçerlidir</h3>
+          <p>Buna rağmen hedef, şu anki kilonun 0,60 × RER değerinin altına asla düşmez; bu, kilo kaybının kademeli kalması ve köpeğin her gün yeterli enerji almaya devam etmesi için bir güvenlik alt sınırıdır.</p>
+        </div>
+        <div class="item">
+          <h3>Kediler farklı çalışır</h3>
+          <p>Kediler, aktiviteden bağımsız olarak tek bir sabit oranla <em>ideal</em> kiloya göre dozlanır; çünkü çok hızlı bir açık, kedilerde hepatik lipidoz riski taşır. <a href="cat-calorie-calculator-tr.html">Kedi kalori hesaplayıcıya</a> bakın.</p>
+        </div>
+      </div>
+      <p class="sources">Yöntem: Dinlenme enerji ihtiyacı (RER) = 70 × (vücut ağırlığı, kg)<sup>0,75</sup>; köpek ve kedilerde beslenme değerlendirmesine ilişkin AAHA ve WSAVA kılavuzlarına dayanır. İdeal kilo, vücut kondisyon skorundan tahmin edilir (köpekte 5'in üzerindeki her puan yaklaşık %13 düşürür). Bu, Dog & Cat Nutrition Coach uygulamasında kullanılan hesabın aynısıdır ve uygulamada haftalık ayarlamanın başlangıç noktası olur.</p>
+    </div>
+
+    <div class="disclaimer">
+      <strong>Veteriner tavsiyesi değildir.</strong> Bu hesaplayıcı yalnızca eğitim amaçlı bir başlangıç tahmini verir; teşhis veya reçete değildir. Yavru köpekler, gebe veya emziren köpekler, diyabet, böbrek veya kalp hastalığı olan köpekler ve istemsiz kilo kaybı yaşayan her köpek, diyete başlamadan önce bir veteriner tarafından değerlendirilmelidir.
+    </div>
+
+    <p class="back"><a href="how-much-to-feed-dog-cat-tr.html">Hesabı elle görmek ister misiniz? Köpeğe ve kediye ne kadar mama verilir, adım adım →</a></p>
+    <p class="back"><a href="https://apps.apple.com/app/apple-store/id6800743305?pt=129087449&amp;ct=web_dog_dogcalc_tr&amp;mt=8" class="cta" aria-label="Dog and Cat Nutrition Coach uygulamasını App Store'dan indir">Her hafta takip etmek için uygulamayı indirin →</a></p>
+    <p class="back"><a href="index.html">← Dog & Cat Nutrition Coach'a dön</a></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Dog &amp; Cat Nutrition Coach &middot; <a href="cat-calorie-calculator-tr.html">Kedi hesaplayıcı</a> &middot; <a href="support.html">Destek</a> &middot; <a href="privacy.html">Gizlilik Politikası</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var T = {
+  "dec": ",",
+  "kcalDay": "kcal / gün",
+  "grams": "≈ günde {0} g bu mamadan (100 g başına {1} kcal)",
+  "hintMaint": "Kilo koruma hedefini doğrudan etkiler.",
+  "hintLose": "Köpeğin kilo verme hedefini doğrudan ölçeklendirir.",
+  "weightErr": "Köpeğinizin kilosunu girin",
+  "s1": "Şu anki kiloda RER: 70 × {0}<sup>0,75</sup> = <code>{1} kcal</code>",
+  "s6": "Nihai hedef: maks(hedef, alt sınır) = <code>{0} kcal/gün</code>",
+  "m2": "Kilo koruma çarpanı ({0}, {1}): <code>×{2}</code>",
+  "m3": "Kilo koruma enerjisi: {0} × {1} = <code>{2} kcal</code>",
+  "m5": "Nihai hedef: maks(kilo koruma, alt sınır) = <code>{0} kcal/gün</code>",
+  "neutYes": "kısırlaştırılmış",
+  "neutNo": "kısırlaştırılmamış",
+  "s2": "«{0}» için aktivite taban katsayısı: <code>×{1}</code>",
+  "s2i": ", kısırlaştırılmamış olduğu için ×1,05 = <code>×{0}</code>",
+  "s3": "Kilo verme hedefi: {0} × {1} = <code>{2} kcal</code>",
+  "s4": "Güvenlik alt sınırı: 0,60 × şu anki RER = 0,60 × {0} = <code>{1} kcal</code>",
+  "s5": "Bilgi için — ideal kilo (BCS {0}): <code>{1} kg</code> (köpeğin dozu için kullanılmaz, veterinerinize göstermek için verilir)",
+  "floorNote": "Aktiviteye göre ölçeklenen hedef güvenlik alt sınırının altında kaldı, bu yüzden bunun yerine alt sınır kullanıldı.",
+  "m4": "Güvenlik alt sınırı: 0,60 × şu anki RER = <code>{0} kcal</code>",
+  "act": {
+    "low": "düşük aktivite",
+    "moderate": "orta aktivite",
+    "high": "yüksek aktivite",
+    "veryHigh": "çok yüksek aktivite"
+  }
+};
+  function f(tpl){ var a = arguments; return tpl.replace(/\{(\d)\}/g, function(m, i){ return a[+i + 1]; }); }
+
+  // ---- Nutrition engine (mirrors the app's Swift NutritionEngine / SpeciesNutritionProfile for dogs) ----
+  function rer(kg){
+    var k = Math.max(kg, 0.5);
+    return 70 * Math.pow(k, 0.75);
+  }
+  function idealWeightKg(currentKg, bcs){
+    var factorPerPoint = 0.13; // dog: 13% per BCS point above 5
+    var b = Math.max(1, Math.min(9, bcs));
+    var factor = 1 + factorPerPoint * (b - 5);
+    var grams = currentKg * 1000;
+    var idealGrams = Math.round(grams / factor);
+    return idealGrams / 1000;
+  }
+  var DOG_MER = {
+    low:      { true: 1.2, false: 1.4 },
+    moderate: { true: 1.6, false: 1.8 },
+    high:     { true: 1.8, false: 2.0 },
+    veryHigh: { true: 2.0, false: 2.2 }
+  };
+  function dogMerMultiplier(activity, neutered){
+    return DOG_MER[activity][neutered ? "true" : "false"];
+  }
+  var LOSE_BASE = { low: 0.80, moderate: 0.85, high: 0.90, veryHigh: 1.00 };
+
+  function computeDog(currentKg, bcs, activity, neutered, goal){
+    var rerCurrent = rer(currentKg);
+    var idealKg = idealWeightKg(currentKg, bcs);
+    var floor = rerCurrent * 0.60;
+    var target, steps;
+
+    if (goal === "lose") {
+      var base = LOSE_BASE[activity];
+      var loseFactor = neutered ? base : base * 1.05;
+      target = rerCurrent * loseFactor;
+      var safe = Math.max(target, floor);
+      steps = [
+        f(T.s1, fmt(currentKg,2), fmt(rerCurrent,0)),
+        f(T.s2, activityLabel(activity), fmt(base,2)) +
+          (neutered ? "" : f(T.s2i, fmt(loseFactor,3))),
+        f(T.s3, fmt(rerCurrent,0), fmt(loseFactor,3), fmt(target,0)),
+        f(T.s4, fmt(rerCurrent,0), fmt(floor,0)),
+        f(T.s5, bcs, fmt(idealKg,2)),
+        f(T.s6, Math.round(safe))
+      ];
+      return { kcal: Math.round(safe), steps: steps,
+        floorNote: safe === floor && target <= floor ? T.floorNote : "" };
+    } else {
+      var mult = dogMerMultiplier(activity, neutered);
+      var mer = rerCurrent * mult;
+      var safe2 = Math.max(mer, floor);
+      steps = [
+        f(T.s1, fmt(currentKg,2), fmt(rerCurrent,0)),
+        f(T.m2, activityLabel(activity), (neutered ? T.neutYes : T.neutNo), fmt(mult,1)),
+        f(T.m3, fmt(rerCurrent,0), fmt(mult,1), fmt(mer,0)),
+        f(T.m4, fmt(floor,0)),
+        f(T.m5, Math.round(safe2))
+      ];
+      return { kcal: Math.round(safe2), steps: steps, floorNote: "" };
+    }
+  }
+
+  function fmt(n, digits){
+    return Number(n).toFixed(digits).replace(".", T.dec);
+  }
+  function activityLabel(a){
+    return T.act[a] || a;
+  }
+  var LB_PER_KG = 0.45359237;
+
+  // ---- UI wiring ----
+  var state = { unit: "kg", goal: "lose" };
+
+  function qs(id){ return document.getElementById(id); }
+
+  document.querySelectorAll(".unit-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var newUnit = btn.getAttribute("data-unit");
+      if (newUnit === state.unit) return;
+      var w = parseFloat(qs("weight").value);
+      if (!isNaN(w)) {
+        if (newUnit === "lb") { w = w / LB_PER_KG; }
+        else { w = w * LB_PER_KG; }
+        qs("weight").value = Math.round(w * 100) / 100;
+      }
+      state.unit = newUnit;
+      document.querySelectorAll(".unit-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+    });
+  });
+
+  document.querySelectorAll(".goal-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      state.goal = btn.getAttribute("data-goal");
+      document.querySelectorAll(".goal-btn").forEach(function(b){ b.classList.toggle("active", b === btn); });
+      var isLose = state.goal === "lose";
+      qs("activityHint").textContent = isLose
+        ? T.hintLose
+        : T.hintMaint;
+    });
+  });
+
+  qs("calcBtn").addEventListener("click", function(){
+    var wRaw = parseFloat(qs("weight").value);
+    if (isNaN(wRaw) || wRaw <= 0) {
+      qs("weightError").textContent = T.weightErr;
+      qs("weightError").style.display = "block";
+      qs("result").classList.remove("show");
+      qs("weight").focus();
+      return;
+    }
+    qs("weightError").textContent = "";
+    qs("weightError").style.display = "none";
+    var kg = state.unit === "lb" ? wRaw * LB_PER_KG : wRaw;
+    var bcs = parseInt(qs("bcs").value, 10);
+    var activity = qs("activity").value;
+    var neutered = qs("neutered").value === "true";
+
+    var out = computeDog(kg, bcs, activity, neutered, state.goal);
+
+    qs("kcalOut").innerHTML = out.kcal + " <small>" + T.kcalDay + "</small>";
+    qs("stepsOut").innerHTML = out.steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+    qs("floorNote").textContent = out.floorNote || "";
+    qs("floorNote").style.display = out.floorNote ? "block" : "none";
+
+    var foodKcal = parseFloat(qs("foodKcal").value);
+    if (!isNaN(foodKcal) && foodKcal > 0) {
+      var grams = out.kcal / foodKcal * 100;
+      qs("gramsOut").textContent = f(T.grams, fmt(grams,0), fmt(foodKcal,0));
+    } else {
+      qs("gramsOut").textContent = "";
+    }
+
+    qs("result").classList.add("show");
+  });
+
+  // Calculate once on load with the pre-filled example.
+  qs("calcBtn").click();
+})();
+</script>
+</body>
+</html>
